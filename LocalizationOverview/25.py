@@ -15,6 +15,10 @@ pOvershoot = 0.1
 pUndershoot = 0.1
 
 def sense(p, Z):
+    '''
+        Gives the probability of the robot's location after sensing it's environment for Z. (Z
+        can be, for example, a color that the robot senses)
+    '''
     q=[]
     for i in range(len(p)):
         hit = (Z == world[i])
@@ -25,6 +29,10 @@ def sense(p, Z):
     return q
 
 def move(p, U):
+    '''
+        Gives the probability of the robot's location after it moves U units to the right
+        with robot's initial location's probability defined by P
+    '''
     q = []
     for i in range(len(p)):
         s = pExact * p[(i-U) % len(p)]
